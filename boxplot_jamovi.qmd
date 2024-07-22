@@ -1,0 +1,91 @@
+---
+title: Boxplots in **Jamovi** with `ggplot2`
+subtitle: Cheatsheet
+date: today
+lightbox: true
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(tidyr)
+library(gt)
+possums <- readxl::read_excel("possum_bw.xlsx")
+```
+::: {.callout-note appearance="simple"}
+This work was developed using resources that are available under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), made available on the [SOLES Open Educational Resources](https://github.com/usyd-soles-edu) repository by the School of Life and Environmental Sciences, The University of Sydney.
+:::
+
+-----
+
+## About
+The **boxplot** is a visual representation of a dataset’s distribution, showing the median, quartiles, and outliers. It is useful for comparing distributions between groups and identifying outliers within a single group.
+
+::: {.callout-note collapse="true"}
+## Assumed knowledge
+- You have Jamovi installed ideally 2.5.7.0 or later.
+- You can follow instructions to select, click and drag elements in Jamovi.
+:::
+
+::: {.callout-important collapse="true"}
+## Data structure
+The data should be in a **long format** (also known as tidy data), where each row is an observation and each column is a variable (@fig-format). If your data is not already structured this way, reshape it manually in a spreadsheet program or in R using the `pivot_longer()` function from the `tidyr` package.
+
+
+::: {layout="[ 0.4, -0.1, 0.4 ]" #fig-format}
+
+:::: {#first-column}
+```{r}
+#| echo: false
+possums <- readxl::read_excel("possum_bw.xlsx")
+possums |>
+  head(8) |>
+  gt() |>
+  opt_stylize(style = 5, color = "red")
+```
+:::
+
+::: {#second-column}
+```{r}
+#| echo: false
+possums |>
+  group_by(Sex) |>
+  mutate(row = row_number()) |>
+  pivot_wider(names_from = Sex, values_from = BW) |>
+  select(-row) |>
+  head(4) |>
+  gt() |>
+  opt_stylize(style = 5, color = "red")
+```
+:::
+
+Data should be in long format (left) where each row is an observation and each column is a variable. This is the preferred format for most statistical software. Wide format (right) is also common, but may require additional steps to analyse or visualise in some instances.
+::::
+:::
+
+## Data
+For this cheatsheet we will use part of the possums dataset used in [BIOL2022](https://www.sydney.edu.au/units/BIOL2022) labs.
+
+{{< downloadthis possum_bw.xlsx dname="possum_bw" label="Download the possums data" type="primary" >}}
+
+## Import data
+
+1. Click on the Menu icon: ![](assets/jamovimenu.png){width=20px}
+2. Select Open > Browse, and navigate to the downloaded file. 
+3. Click Open to load the data.
+
+## Plot
+
+1. Click on the Analyses tab.
+2. Select Exploration > Descriptives.
+3. Add `Sex` to the "Split by" box.
+4. Add `BW` to the "Variables" box.
+5. In the "Plots" tab, select Boxplot.
+
+![How to import data and create a boxplot in Jamovi. Click on the image to expand it.](assets/jamovi-import.gif){#fig-jamovi-import}
+
+## Export
+
+To export the plot, right click on the plot, select Image > Export... > Browse and rename the file before clicking on the Save button.
+
+![A popup window should appear when you right click on a plot, where you can export the image. Click on the image to expand it.](assets/jamovi-export.png){#fig-jamovi-export}

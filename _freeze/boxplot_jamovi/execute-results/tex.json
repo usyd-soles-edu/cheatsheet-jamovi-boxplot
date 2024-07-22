@@ -1,0 +1,21 @@
+{
+  "hash": "5bb3375613bdd6669af1a9f43120ec2b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Boxplots in **Jamovi** with `ggplot2`\nsubtitle: Cheatsheet\ndate: today\nlightbox: true\n---\n\n\n\n\n\n::: {.callout-note appearance=\"simple\"}\nThis work was developed using resources that are available under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), made available on the [SOLES Open Educational Resources](https://github.com/usyd-soles-edu) repository by the School of Life and Environmental Sciences, The University of Sydney.\n:::\n\n-----\n\n## About\nThe **boxplot** is a visual representation of a dataset’s distribution, showing the median, quartiles, and outliers. It is useful for comparing distributions between groups and identifying outliers within a single group.\n\n::: {.callout-note collapse=\"true\"}\n## Assumed knowledge\n- You have Jamovi installed ideally 2.5.7.0 or later.\n- You can follow instructions to select, click and drag elements in Jamovi.\n:::\n\n::: {.callout-important collapse=\"true\"}\n## Data structure\nThe data should be in a **long format** (also known as tidy data), where each row is an observation and each column is a variable (@fig-format). If your data is not already structured this way, reshape it manually in a spreadsheet program or in R using the `pivot_longer()` function from the `tidyr` package.\n\n\n::: {layout=\"[ 0.4, -0.1, 0.4 ]\" #fig-format}\n\n:::: {#first-column}\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n\\begin{longtable}{lr}\n\\toprule\nSex & BW \\\\ \n\\midrule\\addlinespace[2.5pt]\nF & 2.15 \\\\ \nM & 2.55 \\\\ \nF & 2.95 \\\\ \nF & 2.70 \\\\ \nM & 2.20 \\\\ \nF & 1.85 \\\\ \nM & 2.55 \\\\ \nM & 2.60 \\\\ \n\\bottomrule\n\\end{longtable}\n\n:::\n:::\n\n\n\n:::\n\n::: {#second-column}\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n\\begin{longtable}{rr}\n\\toprule\nF & M \\\\ \n\\midrule\\addlinespace[2.5pt]\n2.15 & 2.55 \\\\ \n2.95 & 2.20 \\\\ \n2.70 & 2.55 \\\\ \n1.85 & 2.60 \\\\ \n\\bottomrule\n\\end{longtable}\n\n:::\n:::\n\n\n\n:::\n\nData should be in long format (left) where each row is an observation and each column is a variable. This is the preferred format for most statistical software. Wide format (right) is also common, but may require additional steps to analyse or visualise in some instances.\n::::\n:::\n\n## Data\nFor this cheatsheet we will use part of the possums dataset used in [BIOL2022](https://www.sydney.edu.au/units/BIOL2022) labs.\n\n\n\n\n{{< downloadthis possum_bw.xlsx dname=\"possum_bw\" label=\"Download the possums data\" type=\"primary\" >}}\n\n\n\n\n\n\n## Import data\n\n1. Click on the Menu icon: ![](assets/jamovimenu.png){width=20px}\n2. Select Open > Browse, and navigate to the downloaded file. \n3. Click Open to load the data.\n\n## Plot\n\n1. Click on the Analyses tab.\n2. Select Exploration > Descriptives.\n3. Add `Sex` to the \"Split by\" box.\n4. Add `BW` to the \"Variables\" box.\n5. In the \"Plots\" tab, select Boxplot.\n\n::: {.content-visible unless-format=\"pdf\"}\n![How to import data and create a boxplot in Jamovi. Click on the image to expand it.](assets/jamovi-import.gif){#fig-jamovi-import}\n:::\n\n## Export\n\nTo export the plot, right click on the plot, select Image > Export... > Browse and rename the file before clicking on the Save button.\n\n![A popup window should appear when you right click on a plot, where you can export the image. Click on the image to expand it.](assets/jamovi-export.png){#fig-jamovi-export}",
+    "supporting": [
+      "boxplot_jamovi_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "\\usepackage{booktabs}\n\\usepackage{caption}\n\\usepackage{longtable}\n\\usepackage{colortbl}\n\\usepackage{array}\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

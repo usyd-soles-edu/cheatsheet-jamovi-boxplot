@@ -82,7 +82,9 @@ For this cheatsheet we will use part of the possums dataset used in [BIOL2022](h
 4. Add `BW` to the "Variables" box.
 5. In the "Plots" tab, select Boxplot.
 
+::: {.content-visible unless-format="pdf"}
 ![How to import data and create a boxplot in Jamovi. Click on the image to expand it.](assets/jamovi-import.gif){#fig-jamovi-import}
+:::
 
 ## Export
 

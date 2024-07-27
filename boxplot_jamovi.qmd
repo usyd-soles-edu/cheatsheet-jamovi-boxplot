@@ -1,5 +1,5 @@
 ---
-title: Boxplots in **Jamovi** with `ggplot2`
+title: Boxplots in **Jamovi**
 subtitle: Cheatsheet
 date: today
 lightbox: true
